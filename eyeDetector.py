@@ -32,7 +32,9 @@
 ## encodeImage (img) returns encImage              ## Encode the image to jpeg
 
 ####################################################################################################
-## This module 
+## This module can be run to detect eyes on a video stream if it is called once per frame. 
+## It was fast enough to do this on an american server receiving real time video from Europe, 
+## So it should work fine in most situations. 
 ## 
 ####################################################################################################
 
@@ -40,6 +42,18 @@
 import cv2
 ####################################################################################################
 
+
+
+####################################################################################################
+def decodeImage(img):
+    ## Takes byte-encoded image and makes it usable for other OpenCV images
+    ## Most common image formats are supported, including png, jpeg, tif, bmp
+    decImg = cv2.imdecode(img, 1)
+    return decImg
+    
+    
+
+####################################################################################################
 ## We load Haar classifiers to use by openCV to detect faces
 ## This and other Haar classifiers can be obtained from https://github.com/Itseez/opencv/tree/master/data/haarcascades
 ## Frontal face is used to detect faces looking frontally into the image. 
@@ -74,14 +88,7 @@ faceMaxSize = int(300*scale)
 eyesMinSize = int(12*scale)
 eyesMaxSize = int(40*scale)
 
-####################################################################################################
-def decodeImage(img):
-    ## Takes byte-encoded image and makes it usable for other OpenCV images
-    ## Most common image formats are supported, including png, jpeg, tif, bmp
-    decImg = cv2.imdecode(img, 1)
-    return decImg
 
-####################################################################################################
 def detectEyes(img):
     ## Takes OpenCV formatted image, converts it to greyscale, detects eyes
     ## Returns eyesX, eyesY coordinates, image with green rectangles around eyes
