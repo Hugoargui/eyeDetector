@@ -13,7 +13,7 @@ Python Eye Detection algorithms with OpenCV + server backendo to run from the in
 This is intended as a backup of one of our servers. It may be hard to run without having access to the
 configured server. 
 
-HOWEVER THE EYE DETECTION ALGORITHMS IN eyedetection.py ARE SELF CONTAINED AND CAN BE EASILY USED BY OTHER APPLICATIONS
+HOWEVER THE EYE DETECTION ALGORITHMS ARE SELF CONTAINED AND CAN BE EASILY USED BY OTHER APPLICATIONS
 
 
 
